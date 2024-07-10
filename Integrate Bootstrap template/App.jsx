@@ -1,12 +1,13 @@
-import John from'./John'
+
 import './App.css'
+import Card from './Card'
 
 function App() {
   
 
   return (
     <>
-      <John/>
+      <Card/>
     </>
   )
 }
