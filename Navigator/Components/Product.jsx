@@ -1,50 +1,56 @@
-import axios from "axios"
-import { useEffect, useState } from "react"
+import axios from "axios";
+import { useEffect, useState } from "react";
+import "./Product.css"; // Import the CSS file
 
 function Product() {
-  const [product, setproduct] = useState([])
-  const [limit,setlimit]=useState(1)
+  const [product, setProduct] = useState([]);
+  const [limit, setLimit] = useState(1);
 
-  const getdatafromserver = () => {
-    axios.get(`http://localhost:3000/products?_page=${limit}&_limit=4`)
+  const getDataFromServer = () => {
+    axios
+      .get(`http://localhost:3000/products?_page=${limit}&_limit=4`)
       .then((res) => {
-        setproduct(res.data)
+        setProduct(res.data);
       })
       .catch((err) => {
-        console.log(err)
-      })
-  }
+        console.log(err);
+      });
+  };
 
   useEffect(() => {
-    getdatafromserver()
-  }, [limit])
+    getDataFromServer();
+  }, [limit]);
 
-  fetch("http://localhost:3000/products")
   return (
-    <div>
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: "15px", textAlign: "center", marginTop: "50px" }}>
+    <div className="product-container">
+      <div className="product-grid">
         {product.map((el) => (
-          <>
-            <div key={el.id} style={{boxshadow: "rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px" }}>
-              <img src={el.image} alt="" height={300} width={300}  />
-              <h1>{el.title}</h1>
-              <p>{el.price}</p>
-              <button>Edit</button>
-              <button>delete</button>
-
+          <div key={el.id} className="product-card">
+            <img src={el.image} alt={el.title} className="product-image" />
+            <h1 className="product-title">{el.title}</h1>
+            <p className="product-price">${el.price}</p>
+            <div className="button-group">
+              <button className="btn edit-btn">Edit</button>
+              <button className="btn delete-btn">Delete</button>
             </div>
-          </>
+          </div>
         ))}
-        
       </div>
-      <div style={{textAlign:"center"}}>
-      <button onClick={()=>{setlimit(limit-1)}}>Prev</button>
-      <span>{limit}</span>
-      <button onClick={()=>{setlimit(limit+1)}}>Next</button>
+      <div className="pagination">
+        <button
+          className="pagination-btn"
+          onClick={() => setLimit(limit - 1)}
+          disabled={limit === 1}
+        >
+          Prev
+        </button>
+        <span className="page-number">{limit}</span>
+        <button className="pagination-btn" onClick={() => setLimit(limit + 1)}>
+          Next
+        </button>
       </div>
-
     </div>
-  )
+  );
 }
 
-export default Product
+export default Product;
