@@ -1,11 +1,11 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
-import './index.css'
-import { Theamcontextprovider } from './context/Theamcontext.jsx'
+
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App';
+import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <Theamcontextprovider>
+  <React.StrictMode>
     <App />
-  </Theamcontextprovider>,
-)
+  </React.StrictMode>
+);

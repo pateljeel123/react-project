@@ -1,0 +1,45 @@
+
+.app-container.light {
+  background-color: white;
+  color: black;
+}
+
+.app-container.dark {
+  background-color: black;
+  color: white;
+}
+
+.app-container {
+  transition: background-color 0.5s ease, color 0.5s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.header, .footer {
+  width: 100%;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.header.light {
+  background-color: #f0f0f0;
+}
+
+.header.dark {
+  background-color: #333;
+}
+
+.footer.light {
+  background-color: #f0f0f0;
+}
+
+.footer.dark {
+  background-color: #333;
+}
