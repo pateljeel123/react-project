@@ -1,15 +1,17 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
-
+import { useParams } from "react-router-dom"
 
 function Discriptionpage() {
 
-  const [count,setcount]=useState([])
+  const [page,setpage]=useState({})
+  const params=useParams()
 
+  
   const fetchdata=()=>{
-    axios.get("http://localhost:3000/products")
+    axios.get(`http://localhost:3000/products/${params.id}`)
     .then((res)=>{
-      setcount(res.data)
+      setpage(res.data)
     })
     .catch((err)=>console.log(err))
   }
@@ -20,9 +22,13 @@ function Discriptionpage() {
 
   return (
     <div>
-      <h1>This is a discription page </h1>
-
-      <h1>{fetchdata.id}</h1>
+     <div key={page.id}>
+     <h1>{page.title}</h1>  
+     <h1>{page.name}</h1>  
+     <img src={page.image} alt="" />
+     <h1>{page.description}</h1>  
+     <h1>{page.price}</h1>  
+     </div>
     </div>
   )
 }

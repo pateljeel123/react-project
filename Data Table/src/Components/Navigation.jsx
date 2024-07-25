@@ -7,6 +7,7 @@ function Navigation() {
       <Link to={"/product"}>product</Link>
       <Link to={"/addproduct"}>addproduct</Link>
       <Link to={"/discription"}>discription</Link>
+      <Link to={"/editpage"}>Editpage</Link>
     </div>
   )
 }
