@@ -60,7 +60,7 @@ function EditPage() {
                 <input value={description} onChange={handleChange} type="text" placeholder="description" name="description" /><br />
                 <input type="submit" value="Update" />
             </form>
-            <button onClick={handleDelete}>Delete</button>
+            
         </div>
     );
 }

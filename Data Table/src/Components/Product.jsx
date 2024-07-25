@@ -1,10 +1,9 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Product() {
   const [data, setData] = useState([]);
-  const navigate = useNavigate();
 
   const fetchData = () => {
     axios.get("http://localhost:3000/products")
@@ -18,6 +17,7 @@ function Product() {
     axios.delete(`http://localhost:3000/products/${id}`)
       .then((res) => {
         alert("Product deleted");
+        console.log(res)
         fetchData(); // Refresh the product list after deletion
       })
       .catch((err) => console.log(err));
