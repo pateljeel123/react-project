@@ -18,7 +18,7 @@ function Product() {
       .then((res) => {
         alert("Product deleted");
         console.log(res)
-        fetchData(); // Refresh the product list after deletion
+        
       })
       .catch((err) => console.log(err));
   };

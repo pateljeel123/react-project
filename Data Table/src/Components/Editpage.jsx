@@ -16,7 +16,7 @@ function EditPage() {
     const dataFetching = () => {
         axios.get(`http://localhost:3000/products/${id}`)
             .then((res) => {
-                setFormData(res.data); // Ensure that res.data is being used to set the formData state
+                setFormData(res.data); 
             })
             .catch((err) => console.log(err));
     };
@@ -39,7 +39,7 @@ function EditPage() {
 
     useEffect(() => {
         dataFetching();
-    }, []); // Dependency array to run effect only once
+    }, []);  
 
     const { title, description, category, image, price } = formData;
 
