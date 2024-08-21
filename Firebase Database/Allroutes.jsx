@@ -15,7 +15,7 @@ function Allroutes() {
           <Privatepage>
           <Product/>
           </Privatepage>
-          }></Route>  
+        }></Route>  
       </Routes>
     </div>
   )
